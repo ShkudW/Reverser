@@ -55,7 +55,7 @@ sudo apt-get install mono-complete
    openssl s_server -accept <Your_Port> -cert reception.pem -key reception.key -quiet
 
 # PoC:
-Creating an EXE file that executes Reverse Shell:
+Creating an obfuscated EXE file that contain a Reverse Shell:
 
 ![image](https://github.com/user-attachments/assets/64ff1b49-f1c8-401c-8423-ab851c51c9b9)
 
