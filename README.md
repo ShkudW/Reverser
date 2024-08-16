@@ -11,6 +11,23 @@
 - **Auto-generated Files**: The executable file, when run, generates the PowerShell script on disk, hides it, and executes it to establish the reverse shell connection.
 - **Customizable**: The IP address, port, and output file names can be customized through command-line arguments.
 
+# Installtion
+
+Clone the repository:
+```bash
+git clone https://github.com/yourusername/Reverser.git
+cd Reverser
+```
+Install the necessary dependencies:
+```bash
+pip install -r requirements.txt
+```
+Ensure Mono is installed:
+```bash
+sudo apt-get install mono-complete
+```
+
+
 ## Usage
 
 1. **Generating an SSL Certificate**:
