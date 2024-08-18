@@ -6,7 +6,7 @@ import base64
 from urllib.parse import urlparse
 from colorama import Fore, Style, init
 
-# Initialize colorama
+
 init()
 
 def print_banner():
@@ -160,7 +160,7 @@ if __name__ == "__main__":
         # Extract the PS1 filename from the server URL
         ps1_filename = os.path.basename(urlparse(args.server).path)
 
-        # Create the PS1 file with the extracted filename
+        
         save_encoded_ps1(args.ip, args.port, ps1_filename)
         
         output_file = "reception.bat"
