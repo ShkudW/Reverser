@@ -50,28 +50,28 @@ openssl s_server -accept <Your_Listener_Port> -cert reception.pem -key reception
 
 ## PoC:
 Generate a Batch File that downloading and executing a PS1 file:
-```
+
 ![image](https://github.com/user-attachments/assets/4816ff7f-e694-413b-8a82-eb6eec74df65)
-```
+
 
 Running the Batch file on the target machine, the connection is not secure yet, and headers that look legitimate are passed:
-```
+
 ![image](https://github.com/user-attachments/assets/87a630c3-2310-4f91-a8fe-d0948523de2f)
-```
+
 
 Running the listener server and getting a request for downloaing the PS1 file:
-```
+
 ![image](https://github.com/user-attachments/assets/14618c88-ba1b-452d-8b26-5e803c47772d)
-```
+
 
 Traffic is secure:
-```
+
 ![image](https://github.com/user-attachments/assets/42f5453d-4687-4432-bfb4-070074260549)
-```
+
 
 Getting a Secure Reverse Shell:
-```
+
 ![image](https://github.com/user-attachments/assets/16ecaf01-05fa-4e18-84a6-c063937ad808)
-```
+
 
 
