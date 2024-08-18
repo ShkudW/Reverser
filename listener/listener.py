@@ -7,7 +7,7 @@ import random
 from threading import Thread
 from colorama import Fore, Style, init
 
-# Initialize colorama
+
 init()
 
 def generate_certificate(cert_file, key_file):
