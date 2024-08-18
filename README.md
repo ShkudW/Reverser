@@ -62,7 +62,8 @@ python3 listener.py -https_port <Your_Listener_Server_PORT>
 
 Running the BAT file on the workstation, the file connects to our listener server over encrypted traffic:
 
-![image](https://github.com/user-attachments/assets/a2b977f8-455c-42a8-9ec9-1e4d66905035)
+![image](https://github.com/user-attachments/assets/049f45bf-f014-47d8-92ef-4514294745cf)
+
 
 
 
