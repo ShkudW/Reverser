@@ -26,7 +26,7 @@ git clone https://github.com/ShkudW/Reverser.git
 cd Reception
 ```
 
-## Usage
+## Explain
 
 The tool can generate two types of files, as chosen by the user:
 A PS1 file with obfuscation and Base64 encoding containing a Reverse shell payload.
@@ -38,8 +38,7 @@ The encoded PS1 file will be loaded into memory and establish a connection to an
 
 This way, we can ensure that the communication is encrypted end-to-end.
 
-Commands:
-----
+## Usage
 
 Creating only a PS1 file (obfuscated and Based64 encoded):
 ```bash
