@@ -16,7 +16,7 @@ def generate_certificate(cert_file, key_file):
             print(f"{Fore.YELLOW}Generating SSL certificate...{Style.RESET_ALL}")
             process = subprocess.Popen([
                 "openssl", "req", "-new", "-newkey", "rsa:4096", "-days", "365", "-nodes",
-                "-x509", "-subj", "/CN=www.reception.recep",
+                "-x509", "-subj", "/CN=www.welcome.corp",
                 "-keyout", key_file, "-out", cert_file
             ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
