@@ -6,7 +6,7 @@ class MyHandler(SimpleHTTPRequestHandler):
         if self.path.endswith('.ps1'):
             self.send_response(200)
             self.send_header('Content-type', 'application/octet-stream')
-            self.send_header('Set-Cookie', 'sessionid=abc123; Path=/; HttpOnly')
+            self.send_header('Set-Cookie', 'sessionid=bM2Bhj6QixtA4n9GcFB4Ne5o4MiQEmHvKVFB6v0vHPoIIHAvIh; Path=/; HttpOnly')
             self.send_header('Cache-Control', 'no-cache')
             self.send_header('Pragma', 'no-cache')
             self.end_headers()
