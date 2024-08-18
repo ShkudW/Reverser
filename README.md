@@ -61,16 +61,19 @@ python3 listener.py -https_port <Your_Listener_Server_PORT>
 
 
 Running the BAT file on the workstation, the file connects to our listener server over encrypted traffic:
+
 ![image](https://github.com/user-attachments/assets/a2b977f8-455c-42a8-9ec9-1e4d66905035)
 
 
 
 Receiving a response from the listener server and establishing a Reverse shell from the workstation:
+
 ![image](https://github.com/user-attachments/assets/dee0bf16-68f4-4059-9bdf-3d28e859e4c5)
 
 
 
 The encrypted network traffic:
+
 ![image](https://github.com/user-attachments/assets/7fa8673f-0d4c-40e5-9449-ef746b6b203f)
 
 
