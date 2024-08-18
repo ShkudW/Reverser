@@ -17,7 +17,7 @@ def print_banner():
 @ShkudW
 \033[0m"""
     print(banner)
-    print("\033[96mGitHub: https://github.com/ShkudW/Reception\033[0m")
+    print("\033[96mGitHub: https://github.com/ShkudW/Reverser\033[0m")
 
 def generate_certificate(cert_file, key_file):
     try:
