@@ -20,7 +20,7 @@ def print_banner():
 @ShkudW
 {Style.RESET_ALL}"""
     print(banner)
-    print(f"{Fore.CYAN}GitHub: https://github.com/ShkudW/Reception{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}GitHub: https://github.com/ShkudW/Reverser{Style.RESET_ALL}")
 
 def generate_certificate(cert_file, key_file):
     try:
