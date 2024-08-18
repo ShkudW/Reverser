@@ -1,4 +1,4 @@
-# Reception: Reverse Shell Generator with SSL Encryption
+# Reverser: Reverse Shell Generator with SSL Encryption
 
 ## Overview
 
