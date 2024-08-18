@@ -15,7 +15,7 @@
 
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Reverser.git
+ git clone https://github.com/ShkudW/Reverser.git
 cd Reverser
 ```
 Install the necessary dependencies:
