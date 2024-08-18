@@ -49,23 +49,28 @@ openssl s_server -accept <Your_Listener_Port> -cert reception.pem -key reception
 ```
 
 ## PoC:
-Generate a Batch File and PowerShell Script:
+Generate a Batch File that downloading and executing a PS1 file:
 
-![image](https://github.com/user-attachments/assets/cfa697dc-46dc-4590-a05a-0cb0f09b1f8f)
+![image](https://github.com/user-attachments/assets/4816ff7f-e694-413b-8a82-eb6eec74df65)
 
 
-Running the BAT file and creating a secure connection to the listener:
+Running the Batch file on the target machine, the connection is not secure yet, and headers that look legitimate are passed:
 
-![image](https://github.com/user-attachments/assets/b7e05932-eeee-424f-905a-cb79481d1e2e)
+![image](https://github.com/user-attachments/assets/87a630c3-2310-4f91-a8fe-d0948523de2f)
+
+
+Running the listener server and getting a request for downloaing the PS1 file:
+
+![image](https://github.com/user-attachments/assets/14618c88-ba1b-452d-8b26-5e803c47772d)
+
+
+Traffic is secure:
+
+![image](https://github.com/user-attachments/assets/42f5453d-4687-4432-bfb4-070074260549)
+
 
 Getting a Secure Reverse Shell:
-
-![image](https://github.com/user-attachments/assets/254b55c2-4b83-4792-8901-95504c9a7fba)
-
-Our Web Server with the PS1 file:
-
-![image](https://github.com/user-attachments/assets/9d798ae3-fb11-4354-9ca1-c3c1343a1587)
-
+![image](https://github.com/user-attachments/assets/16ecaf01-05fa-4e18-84a6-c063937ad808)
 
 
 
