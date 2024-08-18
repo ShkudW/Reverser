@@ -22,7 +22,7 @@
 Clone the repository:
 
 ```bash
-git clone https://github.com/ShkudW/Reception.git
+git clone https://github.com/ShkudW/Reverser.git
 cd Reception
 ```
 
