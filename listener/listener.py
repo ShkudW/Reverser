@@ -63,7 +63,7 @@ def run_https_server(port, cert_file, key_file):
     server_address = ('', port)
     httpd = HTTPServer(server_address, MyHandler)
 
-    # עטיפת השרת עם SSL
+    
     httpd.socket = ssl.wrap_socket(httpd.socket,
                                    keyfile=key_file,
                                    certfile=cert_file,
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     cert_file = "reception.pem"
     key_file = "reception.key"
 
-    # יצירת תעודת SSL אם אין קיימת
+    
     generate_certificate(cert_file, key_file)
 
     if args.http_port:
