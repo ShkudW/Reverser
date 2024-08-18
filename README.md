@@ -37,7 +37,7 @@ To create the BAT file, I developed a Python script that acts as a listener for 
 The encoded PS1 file will be loaded into memory and establish a connection to another listener, which is set up using OpenSSL.
 
 This way, we can ensure that the communication is encrypted end-to-end.
-
+---------------------------
 
 Creating only a PS1 file (obfuscated and Based64 encoded):
 ```bash
