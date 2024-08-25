@@ -90,5 +90,17 @@ The Reverse shell operation will then proceed in an encrypted manner:
 ![image](https://github.com/user-attachments/assets/77b78ae6-fc92-4fa9-93fa-ab43a9bc5b27)
 
 
+# Update for the tool (25/08/2024):
+1) A change was made in the BAT file
+  The pyaload for downloading the PS1 file currently works with base64 compared to the previous version that was in clear texr:
+
+  ![image](https://github.com/user-attachments/assets/6cebfce2-3ebe-44a5-969c-afca3c7024ce)
+
+2) A bank of variables has been added to streamline the PS1 file signature change:
+
+  ![image](https://github.com/user-attachments/assets/dce15c9a-68e3-4e36-a156-b6d3e1c2bc18)
+
+  ![image](https://github.com/user-attachments/assets/afe01484-cdc3-4b97-849e-0fa59f30f74b)
+
 
 
