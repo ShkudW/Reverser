@@ -45,7 +45,7 @@ Creating only a PS1 file (obfuscated and Based64 encoded):
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type ps1
 ```
-![image](https://github.com/user-attachments/assets/7e53d3e9-553a-459f-bf42-287d2c6e1606)
+![image](https://github.com/user-attachments/assets/a52d08f3-e61f-4a41-be2c-43bbb29ce7d9)
 
 Creating a VBS file with the tool and transferring it to the listener's directory:
 ```bash
