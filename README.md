@@ -78,7 +78,7 @@ All The traffic is encrypted:
 ![image](https://github.com/user-attachments/assets/a2f21061-aa9c-425f-b631-0da774b01395)
 
 
-Getting a Reverse Shell:
+Getting an encrypted Reverse Shell after downloading the PS1 file to the memory via encrypted connection:
 ![image](https://github.com/user-attachments/assets/eb34ed8a-e98c-4fed-b01d-f2bafdc00726)
 
 
