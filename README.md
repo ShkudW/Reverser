@@ -82,6 +82,19 @@ Getting an encrypted Reverse Shell after downloading the PS1 file to the memory 
 ![image](https://github.com/user-attachments/assets/eb34ed8a-e98c-4fed-b01d-f2bafdc00726)
 
 
+# Update fot the Tool from 01/09/2024:
+Update to the tool: I added the -lolbas flag. In this mode, the use of this flag will only apply when creating a VBS file. In scenarios where the use of powershell.exe is blocked within organizations, the script will create a VBS file that copies powershell.exe from its original path:
 
+'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
 
+to a new location where the user executing the payload has write permissions, and it will generate a new name for the powershell.exe file (each time, a different name will be generated).
 
+This way, the download of the ReverseShell payload in PS1 format will run from the newly created powershell.exe file:
+
+Creating the VBS file with using the lolbas:
+![image](https://github.com/user-attachments/assets/ecff3611-e901-4f8b-be9e-bdcc4cded767)
+
+The VBS file:
+![image](https://github.com/user-attachments/assets/81a0bf66-265d-4288-a6df-5369637e2fad)
+
+# Enjoy :)
