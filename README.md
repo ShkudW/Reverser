@@ -82,7 +82,7 @@ Getting an encrypted Reverse Shell after downloading the PS1 file to the memory 
 ![image](https://github.com/user-attachments/assets/eb34ed8a-e98c-4fed-b01d-f2bafdc00726)
 
 
-# Update fot the Tool from 01/09/2024:
+# Update for the Tool from 01/09/2024:
 Update to the tool: I added the -lolbas flag. In this mode, the use of this flag will only apply when creating a VBS file. In scenarios where the use of powershell.exe is blocked within organizations, the script will create a VBS file that copies powershell.exe from its original path:
 
 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
