@@ -11,6 +11,7 @@
 - **Base64 Encoding:** The PowerShell scripts are encoded in Base64 for additional obfuscation.
 - **Batch File Generation:** Create a batch file that downloads and executes the encoded PowerShell script directly from a remote server.
 - **VBS File Generation:** Create a VBS file that downloads and executes the encoded PowerShell script directly from a remote server.
+- **HTA File Generation:** Create a HTA file that downloads and executes the encoded PowerShell script directly from a remote server.
 - **Customizable:** Users can specify the IP address, port, and server URL for downloading the PowerShell script.
 
 ### Prerequisites
@@ -33,8 +34,9 @@ The tool can generate Three types of files, as chosen by the user:
 - A single PS1 file with obfuscation and Base64 encoding containing a Reverse shell payload.
 - An encoded BAT file that connects to a remote server to download and Execute the encoded PS1 file.
 - A VBS file that connects to a remote server to download and Execute the encoded PS1 file.
+- A HTA file that connects to a remote server to download and Execute the encoded PS1 file.
 
-The BAT and VBS files, during their initial request to the server to download the PS1 into memory, are executed over an encrypted channel using a Self-Signed Certificate. After downloading the PS1 file into memory, the BAT and VBS files will decode the script and establish an encrypted communication channel to create the Reverse Shell
+The BAT, HTA and VBS files, during their initial request to the server to download the PS1 into memory, are executed over an encrypted channel using a Self-Signed Certificate. After downloading the PS1 file into memory, the BAT and VBS files will decode the script and establish an encrypted communication channel to create the Reverse Shell
 
 
 This way, we can ensure that the communication is encrypted end-to-end.
