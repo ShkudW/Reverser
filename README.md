@@ -24,8 +24,11 @@
 Clone the repository:
 
 ```bash
+python3 -m venv Reverser
+cd Reverse
 git clone https://github.com/ShkudW/Reverser.git
 cd Reverser
+pip install -r requirement.txt
 ```
 
 ## Explain
