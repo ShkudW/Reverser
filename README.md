@@ -25,6 +25,7 @@ Clone the repository:
 
 ```bash
 python3 -m venv Reverser
+sourve Reverser/bin/active
 cd Reverse
 git clone https://github.com/ShkudW/Reverser.git
 cd Reverser
